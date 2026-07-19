@@ -1,6 +1,6 @@
 # DREAM: Disaster Response Queueing Model
 
-Python tool built during an internship to help plan staffing for mass casualty incident (MCI) response. It models how casualties move through three stages: Search & Rescue, First Aid (Casualty Collection Point), and Transport (Staging Area), and estimates whether the current number of teams can keep up with incoming casualties.
+Python tool built during an internship to help plan staffing for mass casualty incident (MCI) response. It models how casualties move through stages in disaster response: Hot Zone, Casualty Collection Point, Staging Area, and Advanced Medical Post, and estimates whether the current number of teams can keep up with incoming casualties.
 
 User Manual: https://docs.google.com/document/d/12MXNLDTKlQ0HM1NfmpoTbaPHug6XjJ3uvQhEK5yXPkE/preview?rm=minimal
 
@@ -21,5 +21,12 @@ If a stage can't keep up with incoming casualties, the tool flags it and can sug
 ## Stack
 Python, pandas, matplotlib. Built and run in Google Colab.
 
-## Notes
-Built solo (programming). The queueing formulas and MCI process model were worked out and checked with a small team during the internship. This notebook is the modeling core of the project; the model was later carried over into a Flutter mobile app prototype.
+## Mobile app
+The same model is also built as a Flutter app for Android, so it can be used directly in the field instead of through the notebook. It has three tabs:
+
+- **Input** — enter casualty timestamps (SAR dispatched, CCP arrival, first aid returned, SA arrival, transport returned), with quick +1/+5 minute adjustment buttons and auto-adjust for adjacent times. Also where team counts and capacity are set for each stage.
+- **Data** — list of logged entries, editable and deletable, with the running average rates shown at the bottom.
+- **Metrics** — the queueing results for both stages: recommendations, stability notes, and a probability distribution chart (bar chart, via fl_chart).
+
+Same stages (Casualty Collection Point, Staging Area) and same queueing formulas (M/M/c, with finite-capacity variants) as the notebook, reimplemented in Dart. Data is stored locally on the device (shared_preferences), and the app runs fully offline.
+
