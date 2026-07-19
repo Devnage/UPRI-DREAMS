@@ -1,5 +1,7 @@
 # DREAM: Disaster Response Queueing Model
 
+Data-Driven Evaluation, Assessment and Modelling of Casualty Management-Component of Disaster Response (DREAM-Disaster Response):
+
 Python tool built during an internship to help plan staffing for mass casualty incident (MCI) response. It models how casualties move through stages in disaster response: Hot Zone, Casualty Collection Point, Staging Area, and Advanced Medical Post, and estimates whether the current number of teams can keep up with incoming casualties.
 
 User Manual: https://docs.google.com/document/d/12MXNLDTKlQ0HM1NfmpoTbaPHug6XjJ3uvQhEK5yXPkE/preview?rm=minimal
